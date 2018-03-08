@@ -11,15 +11,15 @@ import Foundation
 struct WeatherApiResponse: Decodable {
     
     fileprivate struct ForcastContainer: Decodable {
-        let data: [Weather]
+        let data: [ForcastWeather]
     }
     
-    let currentWeather: Weather
-    let forcastWeather: [Weather]
+    let currentWeather: CurrentWeather
+    let forcastWeather: [ForcastWeather]
     
     init(from decoder: Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
-        currentWeather = try keyedContainer.decode(Weather.self, forKey: .currentWeather)
+        currentWeather = try keyedContainer.decode(CurrentWeather.self, forKey: .currentWeather)
         forcastWeather = (try keyedContainer.decode(ForcastContainer.self, forKey: .forcastWeather)).data
     }
     

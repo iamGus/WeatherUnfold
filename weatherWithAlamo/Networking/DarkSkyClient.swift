@@ -27,7 +27,7 @@ class DarkSkyClient {
         
         let endpoint = DarkSkyEndpoint.forcastRequest(coordinates: coordinates)
         let url = endpoint.url
-        let weatherList = [Weather]()
+        //let weatherList = [Weather]()
         
         
         Alamofire.request(url)
@@ -57,14 +57,19 @@ class DarkSkyClient {
                     do {
                         let currentWeather = try JSONDecoder().decode(WeatherApiResponse.self, from: data)
                         
-                        print(currentWeather.currentWeather.summary)
+                        var array = [Weather]()
                         
-                        for forcast in currentWeather.forcastWeather {
-                            print(forcast.summary)
-                            print(forcast.dayOfTheWeek)
+                        array.append(currentWeather.currentWeather)
+                        for each in currentWeather.forcastWeather {
+                            array.append(each)
                         }
+                        
+                        completion(Result.success(array))
+                        
+                        
                     } catch let error {
-                        print("error: \(error)")
+                        print("Parse error: \(error)")
+                        completion(Result.failure(DarkSkyError.jsonParsingFailure))
                     }
                    
                     
