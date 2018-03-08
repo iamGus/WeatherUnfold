@@ -16,10 +16,17 @@ class WeatherCell: FoldingCell {
     @IBOutlet weak var forgroundWeatherDoing: UILabel!
     @IBOutlet weak var forgroundTempLow: UILabel!
     @IBOutlet weak var forgroundTempHigh: UILabel!
-    
     @IBOutlet weak var forgroundCurrentTemp: UILabel!
     
     @IBOutlet weak var containerHeading: UILabel!
+    @IBOutlet weak var containerLowHighView: UIView!
+    @IBOutlet weak var containerLowTemp: UILabel!
+    @IBOutlet weak var containerHighTemp: UILabel!
+    @IBOutlet weak var containerIcon: UIImageView!
+    @IBOutlet weak var containerHumidity: UILabel!
+    @IBOutlet weak var containerRain: UILabel!
+    @IBOutlet weak var containerSummary: UILabel!
+    
     
     
     
@@ -52,7 +59,7 @@ class WeatherCell: FoldingCell {
     func configure(with viewmodel: CurrentWeatherViewModel) {
         // Forground
         forgroundIcon.image = viewmodel.icon
-        forgroundDay.text = "Today"
+        forgroundDay.text = "Currently"
         forgroundWeatherDoing.text = viewmodel.shortSummary
         forgroundTempLow.isHidden = true
         forgroundTempHigh.isHidden = true
@@ -61,10 +68,14 @@ class WeatherCell: FoldingCell {
         
         // Container
         containerHeading.text = viewmodel.todayDate
-        
+        containerLowHighView.isHidden = true
+        containerIcon.image = viewmodel.icon
+        containerHumidity.text = viewmodel.humidity
+        containerRain.text = viewmodel.rainProbability
+        containerSummary.text = viewmodel.summary
     }
     
-    /// Forcase Weather
+    /// Forcast Weather
     func configure(with viewmodel: ForcastWeatherViewModel) {
         // Forground
         forgroundIcon.image = viewmodel.icon
@@ -75,6 +86,12 @@ class WeatherCell: FoldingCell {
         
         // Container
         containerHeading.text = viewmodel.dayOfWeek
+        containerLowTemp.text = viewmodel.temperatureMin
+        containerHighTemp.text = viewmodel.temperatureMax
+        containerIcon.image = viewmodel.icon
+        containerHumidity.text = viewmodel.humidity
+        containerRain.text = viewmodel.rainProbability
+        containerSummary.text = viewmodel.summary
     }
     
 }
