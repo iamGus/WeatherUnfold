@@ -26,6 +26,8 @@ class WeatherCell: FoldingCell {
     @IBOutlet weak var containerHumidity: UILabel!
     @IBOutlet weak var containerRain: UILabel!
     @IBOutlet weak var containerSummary: UILabel!
+    @IBOutlet weak var containerCurrentTempView: UIView!
+    @IBOutlet weak var containerCurrentTemp: UILabel!
     
     
     
@@ -68,7 +70,9 @@ class WeatherCell: FoldingCell {
         
         // Container
         containerHeading.text = viewmodel.todayDate
+        containerCurrentTemp.text = viewmodel.temperatureCelsius
         containerLowHighView.isHidden = true
+        containerCurrentTempView.isHidden = false
         containerIcon.image = viewmodel.icon
         containerHumidity.text = viewmodel.humidity
         containerRain.text = viewmodel.rainProbability

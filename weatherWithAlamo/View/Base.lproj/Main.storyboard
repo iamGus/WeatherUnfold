@@ -141,6 +141,24 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Y0-7n-d6r">
                                                                     <rect key="frame" x="0.0" y="0.0" width="149.5" height="60"/>
                                                                     <subviews>
+                                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0U-sF-diq">
+                                                                            <rect key="frame" x="31" y="0.0" width="86" height="60"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpZ-SD-U1G">
+                                                                                    <rect key="frame" x="13.5" y="-3.5" width="59.5" height="68.5"/>
+                                                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="50"/>
+                                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="60" id="NsR-jJ-VpX"/>
+                                                                                <constraint firstItem="kpZ-SD-U1G" firstAttribute="centerY" secondItem="f0U-sF-diq" secondAttribute="centerY" id="mhZ-4e-1V7"/>
+                                                                                <constraint firstItem="kpZ-SD-U1G" firstAttribute="centerX" secondItem="f0U-sF-diq" secondAttribute="centerX" id="sqb-RW-3fM"/>
+                                                                                <constraint firstAttribute="width" constant="86" id="yV4-B6-Xt0"/>
+                                                                            </constraints>
+                                                                        </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dz0-71-zvC">
                                                                             <rect key="frame" x="32" y="0.0" width="86" height="60"/>
                                                                             <subviews>
@@ -196,7 +214,9 @@
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstItem="dz0-71-zvC" firstAttribute="centerX" secondItem="7Y0-7n-d6r" secondAttribute="centerX" id="8IO-QT-CsB"/>
+                                                                        <constraint firstItem="f0U-sF-diq" firstAttribute="centerX" secondItem="7Y0-7n-d6r" secondAttribute="centerX" id="PyB-8n-Frp"/>
                                                                         <constraint firstItem="dz0-71-zvC" firstAttribute="centerY" secondItem="7Y0-7n-d6r" secondAttribute="centerY" id="sCd-aB-Mqg"/>
+                                                                        <constraint firstItem="f0U-sF-diq" firstAttribute="centerY" secondItem="7Y0-7n-d6r" secondAttribute="centerY" id="zYz-Qw-Nt0"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="UNa-dB-nlr">
@@ -274,6 +294,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="containerCurrentTemp" destination="kpZ-SD-U1G" id="cHP-Kd-pEE"/>
+                                            <outlet property="containerCurrentTempView" destination="f0U-sF-diq" id="oRG-R0-PvM"/>
                                             <outlet property="containerHeading" destination="GjN-rs-NMS" id="GJz-fe-EJt"/>
                                             <outlet property="containerHighTemp" destination="esa-Di-X3O" id="imx-rr-7vi"/>
                                             <outlet property="containerHumidity" destination="SDA-An-0me" id="oGa-gS-21X"/>
